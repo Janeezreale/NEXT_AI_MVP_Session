@@ -1,4 +1,5 @@
 import type { CharacterConfig } from "@/lib/ai/prompts";
+import Image from "next/image";
 
 /**
  * 캐릭터 프로필 카드.
@@ -12,6 +13,7 @@ import type { CharacterConfig } from "@/lib/ai/prompts";
  *       <Image src="/character.png" alt={character.name} width={120} height={120} priority />
  *   - 카드 그라디언트 색상, 폰트, 배치도 자유롭게 바꿔보세요.
  */
+
 export function CharacterCard({ character }: { character: CharacterConfig }) {
   return (
     <aside className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
@@ -60,16 +62,14 @@ export function CharacterCard({ character }: { character: CharacterConfig }) {
  * 단순 사람 실루엣 SVG (머리 + 어깨/몸).
  * 본인 캐릭터 이미지가 생기면 next/image로 교체하세요.
  */
+
 function PersonSilhouette({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden
-      className={className}
-    >
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8v1H4v-1z" />
-    </svg>
+    <Image
+      src="/character.png"
+      alt="Person silhouette"
+      width={120}
+      height={120}
+    />
   );
 }
